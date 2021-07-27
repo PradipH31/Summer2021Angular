@@ -15,5 +15,7 @@ namespace Summer2021Angular.Data
         }
 
         public DbSet<Summer2021Angular.Models.Courses.Course> Course { get; set; }
+
+        public DbSet<Summer2021Angular.Models.Courses.Notebook> Notebook { get; set; }
     }
 }
