@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
@@ -11,6 +11,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using Summer2021Angular.Data;
 
 namespace Summer2021Angular
 {
@@ -32,6 +34,9 @@ namespace Summer2021Angular
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Summer2021Angular", Version = "v1" });
             });
+
+            services.AddDbContext<Summer2021AngularContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("Summer2021AngularContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
