@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Summer2021Angular.Data;
 
 namespace Summer2021Angular.Migrations
 {
     [DbContext(typeof(Summer2021AngularContext))]
-    partial class Summer2021AngularContextModelSnapshot : ModelSnapshot
+    [Migration("20210727043130_AddNotebook")]
+    partial class AddNotebook
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
