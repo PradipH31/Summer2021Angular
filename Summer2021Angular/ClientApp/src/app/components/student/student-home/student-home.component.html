@@ -1,1 +1,19 @@
-<h2>{{class}}</h2>
+<li *ngFor="let class of classes" style="display: unset;">
+    <mat-card class="example-card">
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{class.name}}</mat-card-title>
+            <mat-card-subtitle>{{class.teacher}}</mat-card-subtitle>
+        </mat-card-header>
+        <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
+        <mat-card-content>
+            <p>
+                {{class.description}}
+            </p>
+        </mat-card-content>
+        <!-- <mat-card-actions>
+            <button mat-button>LIKE</button>
+            <button mat-button>SHARE</button>
+        </mat-card-actions> -->
+    </mat-card>
+</li>

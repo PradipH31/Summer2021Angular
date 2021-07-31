@@ -7,11 +7,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentHomeComponent implements OnInit {
 
-  class = [
-    'GBIO',
-    'BIO',
-    'CALC',
-    'CMPS'
+  classes = [
+    {
+      'name': 'GBIO',
+      'teacher': 'sss',
+      'description': 'wwww'
+    },
+    {
+      'name': 'BIO',
+      'teacher': 'ccc',
+      'description': 'weeewww'
+    },
+    {
+      'name': 'CALC',
+      'teacher': 'sss',
+      'description': 'wwww'
+    },
+    {
+      'name': 'CMPS',
+      'teacher': 'rrr',
+      'description': 'ttt'
+    }
   ];
 
   constructor() { }
