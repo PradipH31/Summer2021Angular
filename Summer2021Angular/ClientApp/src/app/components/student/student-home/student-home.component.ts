@@ -17,7 +17,8 @@ export class StudentHomeComponent implements OnInit {
   }
 
   getCourses(): void {
-    this.courses = this.courseService.getCourses();
+    this.courseService.getCourses()
+      .subscribe(courses => this.courses = courses);
   }
 
 }
