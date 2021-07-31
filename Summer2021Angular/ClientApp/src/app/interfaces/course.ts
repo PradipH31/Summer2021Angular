@@ -1,6 +1,6 @@
 export interface Course {
-    id: number;
-    name: string;
-    teacher: string;
-    description: string;
+    courseId: number;
+    courseName: string;
+    courseInstructor: string;
+    courseDescription: string;
 }
