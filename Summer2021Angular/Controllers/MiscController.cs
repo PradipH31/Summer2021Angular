@@ -40,6 +40,32 @@ namespace Summer2021Angular.Controllers
             return results.ToList<Models.Courses.File>();
         }
 
+        [HttpPost("githubFile")]
+        public async Task<ActionResult<Models.Courses.File>> PostFromGithub(int courseid, string githubpath)
+        {
+            Random header = new Random();
+            var client = new GitHubClient(new ProductHeaderValue(header.Next().ToString()));
+            client.Credentials = new Credentials("token", AuthenticationType.Anonymous);
+
+            var allsegments = githubpath.Split("%2F");
+
+            var user = allsegments[0];
+            var repo = allsegments[1];
+
+            var filepath = String.Join("/", allsegments.Skip(2).Take(allsegments.Length - 2).ToArray());
+            var content = await client.Repository.Content.GetRawContent(user, repo, filepath);
+            string sfcontent = Convert.ToBase64String(content);
+            string name = allsegments[^1];
+
+            var contenttype = MimeMapping.MimeUtility.GetMimeMapping(filepath);
+
+            Models.Courses.File file = new Models.Courses.File { Name = name, ContentType = contenttype, Content = sfcontent, CourseId = courseid };
+            _context.File.Add(file);
+            await _context.SaveChangesAsync();
+
+            return CreatedAtAction("GetFile", new { id = file.FileId }, file);
+        }
+
         [HttpGet("notebook/{id}")]
         public async Task<ActionResult<IEnumerable<Notebook>>> GetNotebookJH(int id)
         {
