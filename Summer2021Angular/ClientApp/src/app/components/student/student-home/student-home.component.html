@@ -1,14 +1,14 @@
-<li *ngFor="let class of classes" style="display: unset;">
+<li *ngFor="let course of courses" style="display: unset;">
     <mat-card class="example-card">
         <mat-card-header>
-            <div mat-card-avatar class="example-header-image"></div>
-            <mat-card-title>{{class.name}}</mat-card-title>
-            <mat-card-subtitle>{{class.teacher}}</mat-card-subtitle>
+            <!-- <div mat-card-avatar class="example-header-image"></div> -->
+            <mat-card-title>{{course.name}}</mat-card-title>
+            <mat-card-subtitle>{{course.teacher}}</mat-card-subtitle>
         </mat-card-header>
         <!-- <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu"> -->
         <mat-card-content>
             <p>
-                {{class.description}}
+                {{course.description}}
             </p>
         </mat-card-content>
         <!-- <mat-card-actions>

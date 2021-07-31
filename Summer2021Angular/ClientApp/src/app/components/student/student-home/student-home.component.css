@@ -8,5 +8,10 @@
   } */
 
 mat-card {
+    text-align: center;
     margin: 1% 10%
+}
+
+mat-card-header {
+    display: unset;
 }

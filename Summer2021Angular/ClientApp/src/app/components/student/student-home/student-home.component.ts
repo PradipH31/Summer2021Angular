@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { Courses } from 'src/app/mock-courses';
 @Component({
   selector: 'app-student-home',
   templateUrl: './student-home.component.html',
@@ -7,29 +7,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentHomeComponent implements OnInit {
 
-  classes = [
-    {
-      'name': 'GBIO',
-      'teacher': 'sss',
-      'description': 'wwww'
-    },
-    {
-      'name': 'BIO',
-      'teacher': 'ccc',
-      'description': 'weeewww'
-    },
-    {
-      'name': 'CALC',
-      'teacher': 'sss',
-      'description': 'wwww'
-    },
-    {
-      'name': 'CMPS',
-      'teacher': 'rrr',
-      'description': 'ttt'
-    }
-  ];
-
+  courses = Courses;
   constructor() { }
 
   ngOnInit(): void {
