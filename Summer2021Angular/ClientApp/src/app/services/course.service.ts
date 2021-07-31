@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { Course } from '../interfaces/course';
-import { Courses } from '../mock-courses';
 import { Observable, of } from 'rxjs';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  constructor() { }
+  constructor(private http: HttpClient) { }
+
+  private coursesUrl = 'https://localhost:44325/api/Courses'
 
   getCourses(): Observable<Course[]> {
-    const courses = of(Courses);
-    return courses;
+    return this.http.get<Course[]>(this.coursesUrl)
   }
 }
