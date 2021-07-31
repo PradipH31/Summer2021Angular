@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Courses } from 'src/app/mock-courses';
+import { Course } from 'src/app/interfaces/course';
+import { CourseService } from 'src/app/services/course.service';
+
 @Component({
   selector: 'app-student-home',
   templateUrl: './student-home.component.html',
@@ -7,10 +9,15 @@ import { Courses } from 'src/app/mock-courses';
 })
 export class StudentHomeComponent implements OnInit {
 
-  courses = Courses;
-  constructor() { }
+  courses: Course[] = [];
+  constructor(private courseService: CourseService) { }
 
   ngOnInit(): void {
+    this.getCourses();
+  }
+
+  getCourses(): void {
+    this.courses = this.courseService.getCourses();
   }
 
 }
