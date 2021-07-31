@@ -9,9 +9,14 @@
 
 mat-card {
     text-align: center;
-    margin: 1% 10%
+    margin: 1% 25% 3% 25%
 }
 
 mat-card-header {
     display: unset;
+}
+
+.mat-card-image {
+  background-color: white;
+  padding-top: 50.25%
 }
